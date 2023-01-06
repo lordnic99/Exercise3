@@ -1,7 +1,7 @@
 #include "file.h"
 #include <fstream>
 
-std::fstream FileManagement::File::openFileInReadMode()
+std::fstream File::openFileInReadMode() const
 {
 	std::fstream file_to_read;
 	file_to_read.open(this->fileName, std::ios::in);
@@ -13,7 +13,7 @@ std::fstream FileManagement::File::openFileInReadMode()
 	return file_to_read;
 }
 
-std::fstream FileManagement::File::openFileInWriteMode()
+std::fstream File::openFileInWriteMode() const
 {
 	std::fstream file_to_write;
 	file_to_write.open(this->fileName, std::ios::out);
@@ -25,7 +25,7 @@ std::fstream FileManagement::File::openFileInWriteMode()
 	return file_to_write;
 }
 
-std::fstream FileManagement::File::openFileInAppendMode()
+std::fstream File::openFileInAppendMode() const
 {
 	std::fstream file_to_append;
 	file_to_append.open(this->fileName, std::ios::app);
@@ -36,19 +36,19 @@ std::fstream FileManagement::File::openFileInAppendMode()
 	}
 	return file_to_append;
 }
-void FileManagement::File::getFileName(std::string new_name)
+void File::getFileName(std::string new_name)
 {
 	this->fileName = new_name;
 	return;
 }
-void FileManagement::File::createNewFile()
+void File::createNewFile() const
 {
 	std::fstream new_file = openFileInWriteMode();
 	new_file.close();
 	return;
 }
 
-std::string FileManagement::File::getFileContent()
+std::string File::getFileContent() const
 {
 	std::fstream file_to_get = openFileInReadMode();
 	std::string file_data = "";
@@ -64,7 +64,7 @@ std::string FileManagement::File::getFileContent()
 	return file_data;
 }
 
-void FileManagement::File::writeToFile(std::string line_to_write)
+void File::writeToFile(std::string line_to_write) const
 {
 	std::fstream file_to_write = openFileInAppendMode();
 	file_to_write << line_to_write;
