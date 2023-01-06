@@ -1,0 +1,7 @@
+Pho:30000:50
+Bun bo:25000:50
+Bun gio:30000:50
+Banh trang:5000:50
+Rau song:5000:50
+Mi quang:25000:50
+Quay:5000:50
